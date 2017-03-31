@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -12,9 +12,23 @@
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
+}
+
+textarea {
+    max-width: 780px;
+}
+
+.pre-scrollable {
+    max-height: 340px;
+    max-width: 800px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: 38px;
 }
 
 /* Carousel */
@@ -45,6 +59,49 @@ textarea {
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
-        display: none;
+        display: none
     }
+}
+
+.menu {
+    font-size: 12px;
+}
+
+    .menu li {
+        list-style-type: none;
+    }
+
+        .menu li.active {
+            font-weight: bold;
+        }
+
+        .menu li a {
+            color: #eee;
+        }
+
+tr:nth-child(even) {
+    background-color: aliceblue
+}
+
+#sidebar {
+    background: #2a2c36;
+    color: #eee;
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    overflow: hidden;
+    left: 0;
+    margin: 0;
+    -moz-transition: left ease .25s;
+    -o-transition: left ease .25s;
+    -webkit-transition: left ease .25s;
+    transition: left ease .25s;
+}
+
+#wrapper {
+    margin: 0 0 0 250px;
+    -moz-transition: margin-left ease .25s;
+    -o-transition: margin-left ease .25s;
+    -webkit-transition: margin-left ease .25s;
+    transition: margin-left ease .25s;
 }

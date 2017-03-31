@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using FitnessApp.Logic;
 
 namespace FitnessClassRegistration.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IAnnouncementLogic _announcementLogic;
+
+        public HomeController(IAnnouncementLogic announcementLogic)
         {
-            return View();
+            _announcementLogic = announcementLogic;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _announcementLogic.GetList());
         }
 
+        [AllowAnonymous]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -20,6 +30,7 @@ namespace FitnessClassRegistration.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
@@ -27,6 +38,7 @@ namespace FitnessClassRegistration.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Error()
         {
             return View();
