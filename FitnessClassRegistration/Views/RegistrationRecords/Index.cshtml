@@ -1,0 +1,39 @@
+@model IEnumerable<FitnessApp.Models.ApplicationViewModels.FitnessClassListView>
+
+@{
+    ViewData["Title"] = "User Registerations";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FitnessClassType.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructor.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a class="url" asp-action="RegistrationsByFitnessClass" asp-route-id="@item.Id" asp-controller="RegistrationRecords">@item.FitnessClassType.Name</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.Name)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

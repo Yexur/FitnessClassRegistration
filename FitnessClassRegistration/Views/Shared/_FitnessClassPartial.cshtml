@@ -1,0 +1,58 @@
+﻿@model FitnessApp.Models.ApplicationViewModels.FitnessClassEditView
+<div class="form-group">
+    <label asp-for="FitnessClassType_Id" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <select asp-for="FitnessClassType_Id" asp-items="Model.FitnessClassTypes" class="form-control"></select>
+        <span asp-validation-for="FitnessClassType_Id" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="Capacity" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <input asp-for="Capacity" class="form-control" />
+        <span asp-validation-for="Capacity" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="DateOfClass" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <input type="date" data-provide="datepicker" asp-for="DateOfClass" class="form-control" />
+        <span asp-validation-for="DateOfClass" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="StartTime" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <input type="time" asp-for="StartTime" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="EndTime" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <input type="time" asp-for="EndTime" class="form-control" />
+        <span asp-validation-for="EndTime" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="Location_Id" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <select asp-for="Location_Id" asp-items="Model.Locations" class="form-control"></select>
+        <span asp-validation-for="Location_Id" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="Instructor_Id" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <select asp-for="Instructor_Id" asp-items="Model.Instructors" class="form-control"></select>
+        <span asp-validation-for="Instructor_Id" class="text-danger" ></span>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox  col-md-10">
+            <input asp-for="Status" />
+            <label asp-for="Status"></label>
+        </div>
+    </div>
+</div>
