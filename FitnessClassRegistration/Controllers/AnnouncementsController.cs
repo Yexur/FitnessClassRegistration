@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FitnessApp.Logic;
+using FitnessClassRegistration.Logic;
 using Microsoft.AspNetCore.Authorization;
-using FitnessApp.Models.ApplicationViewModels;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
-namespace FitnessApp.Controllers
+namespace FitnessClassRegistration.Controllers
 {
     [Authorize]
     public class AnnouncementsController : Controller

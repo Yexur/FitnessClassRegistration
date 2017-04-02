@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FitnessApp.IRepository
+namespace FitnessClassRegistration.IRepository
 {
     public interface ILocationRepository
     {

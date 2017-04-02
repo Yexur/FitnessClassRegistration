@@ -2,7 +2,7 @@
 using ApplicationModels.FitnessApp.Models;
 using System.Collections.Generic;
 
-namespace FitnessApp.IRepository
+namespace FitnessClassRegistration.IRepository
 {
     public interface IFitnessClassRepository
     {

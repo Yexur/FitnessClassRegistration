@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace FitnessApp.Models.ApplicationViewModels
+namespace FitnessClassRegistration.Models.ApplicationViewModels
 {
     public class FitnessClassSignUpView
     {

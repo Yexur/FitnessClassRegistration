@@ -1,8 +1,8 @@
-﻿using FitnessApp.Models.ApplicationViewModels;
+﻿using FitnessClassRegistration.Models.ApplicationViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FitnessApp.Logic
+namespace FitnessClassRegistration.Logic
 {
 //need to a ref to the find by fitness class id
     public interface IRegistrationRecordLogic

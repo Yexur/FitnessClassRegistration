@@ -1,4 +1,4 @@
-﻿namespace FitnessApp.Core
+﻿namespace FitnessClassRegistration.Core
 {
     public interface IEntity
     {

@@ -1,6 +1,6 @@
 ﻿using ApplicationModels.FitnessApp.Models;
-using FitnessApp.IRepository;
-using FitnessApp.Models.ApplicationViewModels;
+using FitnessClassRegistration.IRepository;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using AutoMapper;
 
-namespace FitnessApp.Logic
+namespace FitnessClassRegistration.Logic
 {
     public class FitnessClassLogic : IFitnessClassLogic
     {

@@ -1,11 +1,11 @@
-﻿using FitnessApp.Models;
+﻿using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
-namespace FitnessApp.Data
+namespace FitnessClassRegistration.Data
 {
     public class UserAndRoleSeedData
     {

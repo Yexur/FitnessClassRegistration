@@ -2,10 +2,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using FitnessApp.Logic;
-using FitnessApp.Models.ApplicationViewModels;
+using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
-namespace FitnessApp.Controllers
+namespace FitnessClassRegistration.Controllers
 {
     [Authorize]
     public class FitnessClassTypesController : Controller

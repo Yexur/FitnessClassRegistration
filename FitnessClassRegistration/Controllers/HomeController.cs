@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using FitnessApp.Logic;
+using FitnessClassRegistration.Logic;
 
 namespace FitnessClassRegistration.Controllers
 {

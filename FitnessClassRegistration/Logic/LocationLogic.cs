@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using FitnessApp.IRepository;
+using FitnessClassRegistration.IRepository;
 using ApplicationModels.FitnessApp.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using AutoMapper;
-using FitnessApp.Models.ApplicationViewModels;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
-namespace FitnessApp.Logic
+namespace FitnessClassRegistration.Logic
 {
     public class LocationLogic : ILocationLogic
     {

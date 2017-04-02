@@ -1,10 +1,10 @@
 ﻿using ApplicationModels.FitnessApp.Models;
 using AutoMapper;
-using FitnessApp.Data;
-using FitnessApp.IRepository;
-using FitnessApp.Logic;
-using FitnessApp.Models.ApplicationViewModels;
-using FitnessApp.Repository;
+using FitnessClassRegistration.Data;
+using FitnessClassRegistration.IRepository;
+using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models.ApplicationViewModels;
+using FitnessClassRegistration.Repository;
 using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Services;
 using Microsoft.AspNetCore.Builder;

@@ -1,13 +1,13 @@
-﻿using FitnessApp.IRepository;
+﻿using FitnessClassRegistration.IRepository;
 using ApplicationModels.FitnessApp.Models;
-using FitnessApp.Data;
+using FitnessClassRegistration.Data;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace FitnessApp.Repository
+namespace FitnessClassRegistration.Repository
 {
     public class LocationRepository : ILocationRepository
     {
