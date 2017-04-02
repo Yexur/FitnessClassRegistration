@@ -1,4 +1,4 @@
-﻿using FitnessApp.Core;
+﻿using FitnessClassRegistration.Core;
 using System.Collections.Generic;
 
 namespace ApplicationModels.FitnessApp.Models

@@ -1,8 +1,8 @@
-﻿using FitnessApp.Models.ApplicationViewModels;
+﻿using FitnessClassRegistration.Models.ApplicationViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FitnessApp.Logic
+namespace FitnessClassRegistration.Logic
 {
     public interface ILocationLogic
     {

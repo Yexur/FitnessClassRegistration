@@ -1,13 +1,13 @@
-﻿using FitnessApp.IRepository;
+﻿using FitnessClassRegistration.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApplicationModels.FitnessApp.Models;
-using FitnessApp.Data;
+using FitnessClassRegistration.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace FitnessApp.Repository
+namespace FitnessClassRegistration.Repository
 {
     public class AnnouncementRepository : IAnnouncementRepository
     {

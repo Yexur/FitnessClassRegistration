@@ -2,7 +2,7 @@
 using ApplicationModels.FitnessApp.Models;
 using System.Threading.Tasks;
 
-namespace FitnessApp.IRepository
+namespace FitnessClassRegistration.IRepository
 {
     public interface IFitnessClassTypeRepository
     {

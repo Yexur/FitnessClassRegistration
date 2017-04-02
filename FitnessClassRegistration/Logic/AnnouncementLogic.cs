@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FitnessApp.Models.ApplicationViewModels;
-using FitnessApp.IRepository;
+using FitnessClassRegistration.Models.ApplicationViewModels;
+using FitnessClassRegistration.IRepository;
 using AutoMapper;
 using ApplicationModels.FitnessApp.Models;
 
-namespace FitnessApp.Logic
+namespace FitnessClassRegistration.Logic
 {
     public class AnnouncementLogic : IAnnouncementLogic
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using FitnessApp.Models;
+using FitnessClassRegistration.Models;
 using ApplicationModels.FitnessApp.Models;
 using System;
 using FitnessClassRegistration.Models;
 
-namespace FitnessApp.Data
+namespace FitnessClassRegistration.Data
 {
     public class FitnessAppDbContext : IdentityDbContext<ApplicationUser>
     {
