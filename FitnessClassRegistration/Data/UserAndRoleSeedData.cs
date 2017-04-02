@@ -1,5 +1,4 @@
 ﻿using FitnessClassRegistration.Models;
-using FitnessClassRegistration.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
