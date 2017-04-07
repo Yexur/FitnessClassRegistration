@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
 namespace FitnessClassRegistration.Controllers
 {
@@ -22,15 +23,37 @@ namespace FitnessClassRegistration.Controllers
             _fitnessClassLogic = fitnessClassLogic;
         }
 
+        [Authorize(Roles = "FitnessAppAdmin")]
         public async Task<IActionResult> Index()
         {
             return View(await _fitnessClassLogic.GetFitnessClassWithRegistrations());
         }
 
+        // GET: RegistrationRecords by FitnessClass
+        [Authorize(Roles = "FitnessAppAdmin")]
         public async Task<IActionResult> RegistrationsByFitnessClass(int id)
         {
             var regs = await _registrationRecordLogic.FindByFitnessClassId(id);
             return View(regs);
+        }
+
+        //POST : RegistrationRecords by FitnessClass
+        [Authorize(Roles = "FitnessAppAdmin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegistrationsByFitnessClass(
+            RegistrationsByFitnessClassModel registrations
+        )
+        {
+            try
+            {
+                await _registrationRecordLogic.SaveAttended(registrations);
+            }
+            catch (DbUpdateConcurrencyException) // need to change this to be less specific
+            {
+                throw;
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: RegistrationRecords
@@ -47,7 +70,7 @@ namespace FitnessClassRegistration.Controllers
             try
             {
                 var registrationRecordIds = deleteSelected.Select(int.Parse).ToArray();
-                _registrationRecordLogic.DeleteRange(registrationRecordIds, User.Identity.Name);
+                _registrationRecordLogic.DeleteRange(registrationRecordIds);
             }
             catch (DbUpdateConcurrencyException) // need to change this to be less specific
             {

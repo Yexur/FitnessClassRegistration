@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ApplicationModels.FitnessApp.Models;
+using FitnessClassRegistration.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using FitnessClassRegistration.Models;
-using ApplicationModels.FitnessApp.Models;
-using System;
-using FitnessClassRegistration.Models;
 
 namespace FitnessClassRegistration.Data
 {
