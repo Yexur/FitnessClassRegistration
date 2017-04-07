@@ -14,5 +14,6 @@ namespace FitnessClassRegistration.IRepository
         RegistrationRecord FindById(int id);
         Task<List<RegistrationRecord>> FindByUserName(string userName);
         Task<List<RegistrationRecord>> FindByFitnessClassId(int fitnessClassId);
+        List<RegistrationRecord> FindByIdRange(List<int> ids);
     }
 }

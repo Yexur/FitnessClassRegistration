@@ -56,16 +56,18 @@ namespace FitnessClassRegistration.Logic
             );
         }
 
-        public async Task<List<RegistrationRecordView>> FindByFitnessClassId(int fitnessClassId)
+        public async Task<RegistrationsByFitnessClassModel> FindByFitnessClassId(
+            int fitnessClassId
+        )
         {
-            var registrationRecords =
+            var registrations =
                 await _registrationRecordRepository.FindByFitnessClassId(fitnessClassId);
 
-            if (registrationRecords == null || !registrationRecords.Any())
+            var registrationsByFitnessClass = new RegistrationsByFitnessClassModel()
             {
-                return Enumerable.Empty<RegistrationRecordView>().ToList();
-            }
-            return Mapper.Map<List<RegistrationRecordView>>(registrationRecords);
+                RegistrationRecords = Mapper.Map<List<RegistrationRecordView>>(registrations)
+            };
+            return registrationsByFitnessClass;
         }
 
         public async Task Save(RegistrationRecordView registrationRecordView)
@@ -98,22 +100,42 @@ namespace FitnessClassRegistration.Logic
             }
         }
 
+        public async Task SaveAttended(RegistrationsByFitnessClassModel registrations)
+        {
+            var updatedRegistrationRecords = UpdateAttendance(registrations);
+            await _registrationRecordRepository.InsertRange(updatedRegistrationRecords);
+        }
+
+        private List<RegistrationRecord> UpdateAttendance
+        (
+            RegistrationsByFitnessClassModel registrations
+        )
+        {
+            var registrationIds = registrations.RegistrationRecords.Select(c => c.Id).ToList();
+            var originalRegistrations = 
+                _registrationRecordRepository.FindByIdRange(registrationIds);
+
+            foreach (var registration in originalRegistrations)
+            {
+                registration.Attended = 
+                    registrations.RegistrationRecords
+                        .Where(r => r.Id == registration.Id)
+                        .Select(attend => attend.Attended)
+                        .FirstOrDefault();
+            }
+
+            return originalRegistrations;
+        }
+
         public void Delete(int id)
         {
             _registrationRecordRepository.Delete(id);
         }
 
-        public void DeleteRange(int[] registrationRecordIds, string userName)
+        public void DeleteRange(int[] registrationRecordIds)
         {
-            List<RegistrationRecord> recordsToDelete = new List<RegistrationRecord>();
-            foreach (var id in registrationRecordIds)
-            {
-                var record = _registrationRecordRepository.FindById(id);
-                if (record != null)
-                {
-                    recordsToDelete.Add(record);
-                }
-            }
+            List<RegistrationRecord> recordsToDelete =
+                _registrationRecordRepository.FindByIdRange(registrationRecordIds.ToList());
 
             if (recordsToDelete.Count() != 0)
             {

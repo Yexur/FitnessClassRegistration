@@ -3,9 +3,9 @@ using AutoMapper;
 using FitnessClassRegistration.Data;
 using FitnessClassRegistration.IRepository;
 using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Models.ApplicationViewModels;
 using FitnessClassRegistration.Repository;
-using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -159,7 +159,7 @@ namespace FitnessClassRegistration
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=FitnessClasses}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}");
             });
 
             identitySeeder.Seed().Wait();

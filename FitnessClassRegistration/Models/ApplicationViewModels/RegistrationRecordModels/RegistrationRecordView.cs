@@ -6,7 +6,7 @@ namespace FitnessClassRegistration.Models.ApplicationViewModels
     {
         public int Id { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         public string Email { get; set; }
