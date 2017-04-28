@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessClassRegistration.CustomValidation;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FitnessClassRegistration.Models.ApplicationViewModels
@@ -15,6 +16,7 @@ namespace FitnessClassRegistration.Models.ApplicationViewModels
         [Display(Name = "End Time")]
         [Required(ErrorMessage = " Please pick an end time")]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = @"{0:h\:mm}")]
+        [NotEqualTo("StartTime")]
         public TimeSpan EndTime { get; set; }
 
         [Display(Name = "Class Date")]
