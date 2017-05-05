@@ -7,7 +7,7 @@ namespace FitnessClassRegistration.CustomValidation
     public class GreaterThan : ValidationAttribute//, IClientModelValidator
     {
         private const string DefaultErrorMessage = "{0} cannot be less than {1}";
-        public string OtherProperty { get; private set; }
+        public string OtherProperty { get; }
 
         public GreaterThan(string otherProperty) : base(DefaultErrorMessage)
         {

@@ -4,13 +4,14 @@ using System.Reflection;
 
 namespace FitnessClassRegistration.CustomValidation
 {
-    public class NotEqualTo : ValidationAttribute //, IClientModelValidator
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+    public class NotEqualToAttribute : ValidationAttribute
     {
         private const string DefaultErrorMessage = "{0} cannot be the same as {1}.";
 
-        public string OtherProperty { get; private set; }
+        public string OtherProperty { get; }
 
-        public NotEqualTo(string otherProperty) : base(DefaultErrorMessage)
+        public NotEqualToAttribute(string otherProperty) : base(DefaultErrorMessage)
         {
             if (string.IsNullOrEmpty(otherProperty))
             {
@@ -46,10 +47,5 @@ namespace FitnessClassRegistration.CustomValidation
             }
             return ValidationResult.Success;
         }
-
-        //public void AddValidation(ClientModelValidationContext context)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

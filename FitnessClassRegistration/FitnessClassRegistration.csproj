@@ -17,6 +17,10 @@
     <DebugType>full</DebugType>
     <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\js\NotEqualToValidation.js" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
     <PackageReference Include="Bootstrap.v3.Datetimepicker" Version="4.17.45" />
