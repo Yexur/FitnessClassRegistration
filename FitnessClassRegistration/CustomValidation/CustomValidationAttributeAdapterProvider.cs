@@ -16,9 +16,31 @@ namespace FitnessClassRegistration.CustomValidation
             IStringLocalizer stringLocalizer
         )
         {
-            return (attribute is NotEqualToAttribute) ? 
-                new NotEqualToAttributeAdapter(attribute as NotEqualToAttribute, stringLocalizer) : 
-                baseProvider.GetAttributeAdapter(attribute, stringLocalizer);
+            if (attribute is NotEqualToAttribute)
+            {
+                return new NotEqualToAttributeAdapter(
+                    attribute as NotEqualToAttribute, 
+                    stringLocalizer
+                );
+            }
+
+            if (attribute is TimeSpanIsAfterAttribute)
+            {
+                return new TimeSpanIsAfterAttributeAdapter(
+                    attribute as TimeSpanIsAfterAttribute,
+                    stringLocalizer
+                );
+            }
+
+            if (attribute is GreaterThanAttribute)
+            {
+                return new GreaterThanAttributeAdapter(
+                    attribute as GreaterThanAttribute,
+                    stringLocalizer
+                );
+            }
+
+            return baseProvider.GetAttributeAdapter(attribute, stringLocalizer);
         }
     }
 }

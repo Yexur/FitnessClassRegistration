@@ -4,10 +4,10 @@ using Microsoft.Extensions.Localization;
 
 namespace FitnessClassRegistration.CustomValidation
 {
-    public class NotEqualToAttributeAdapter : AttributeAdapterBase<NotEqualToAttribute>
+    public class TimeSpanIsAfterAttributeAdapter : AttributeAdapterBase<TimeSpanIsAfterAttribute>
     {
-        public NotEqualToAttributeAdapter(
-            NotEqualToAttribute attribute, 
+        public TimeSpanIsAfterAttributeAdapter(
+            TimeSpanIsAfterAttribute attribute, 
             IStringLocalizer stringLocalizer
         ) : base(attribute, stringLocalizer)
         {
@@ -16,18 +16,22 @@ namespace FitnessClassRegistration.CustomValidation
         public override void AddValidation(ClientModelValidationContext context)
         {
             MergeAttribute(context.Attributes, "data-val", "true");
-            MergeAttribute(context.Attributes, "data-val-notequal", GetErrorMessage(context));
+            MergeAttribute(
+                context.Attributes, 
+                "data-val-timespanisafter", 
+                GetErrorMessage(context)
+            );
             MergeAttribute(
                 context.Attributes,
-                "data-val-notequalto-otherpropertynotequal", 
-                Attribute.OtherPropertyNotEqual
+                "data-val-timespanisafter-othertime",
+                Attribute.OtherTime
             );
         }
 
         public override string GetErrorMessage(ModelValidationContextBase validationContext)
         {
             return GetErrorMessage(
-                validationContext.ModelMetadata, 
+                validationContext.ModelMetadata,
                 validationContext.ModelMetadata.GetDisplayName()
             );
         }

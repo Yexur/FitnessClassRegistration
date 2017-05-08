@@ -4,23 +4,25 @@ using System.Reflection;
 
 namespace FitnessClassRegistration.CustomValidation
 {
-    public class GreaterThan : ValidationAttribute//, IClientModelValidator
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+    public class GreaterThanAttribute : ValidationAttribute
     {
         private const string DefaultErrorMessage = "{0} cannot be less than {1}";
-        public string OtherProperty { get; }
 
-        public GreaterThan(string otherProperty) : base(DefaultErrorMessage)
+        public string OtherPropertyGreaterThan { get; }
+
+        public GreaterThanAttribute(string otherPropertyGreaterThan) : base(DefaultErrorMessage)
         {
-            if (string.IsNullOrEmpty(otherProperty))
+            if (string.IsNullOrEmpty(otherPropertyGreaterThan))
             {
                 throw new ArgumentNullException("otherProperty");
             }
-            OtherProperty = otherProperty;
+            OtherPropertyGreaterThan = otherPropertyGreaterThan;
         }
 
         public override string FormatErrorMessage(string name)
         {
-            return string.Format(ErrorMessageString, name, OtherProperty);
+            return string.Format(ErrorMessageString, name, OtherPropertyGreaterThan);
         }
 
         protected override ValidationResult IsValid(
@@ -31,12 +33,12 @@ namespace FitnessClassRegistration.CustomValidation
             if (value != null)
             {
                 var otherProperty =
-                    validationContext.ObjectInstance.GetType().GetProperty(OtherProperty);
+                    validationContext.ObjectInstance.GetType().GetProperty(OtherPropertyGreaterThan);
 
                 var otherPropertyValue =
                     otherProperty.GetValue(validationContext.ObjectInstance, null);
 
-                if (Int32.Parse(value.ToString()).CompareTo(Int32.Parse(otherPropertyValue.ToString())) > 0)
+                if (Int32.Parse(value.ToString()).CompareTo(Int32.Parse(otherPropertyValue.ToString())) < 0)
                 {
                     return new ValidationResult(
                         FormatErrorMessage(validationContext.DisplayName));
@@ -44,10 +46,5 @@ namespace FitnessClassRegistration.CustomValidation
             }
             return ValidationResult.Success;
         }
-
-        //public void AddValidation(ClientModelValidationContext context)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

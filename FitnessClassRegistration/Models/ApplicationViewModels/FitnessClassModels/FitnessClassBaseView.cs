@@ -16,10 +16,9 @@ namespace FitnessClassRegistration.Models.ApplicationViewModels
         [Display(Name = "End Time")]
         [Required(ErrorMessage = " Please pick an end time")]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = @"{0:h\:mm}")]
-        [NotEqualTo("StartTime", ErrorMessage = "{0} cannot be the same as the Start Time")]
+        [NotEqualTo("StartTime", ErrorMessage = "{0} cannot be the same as the BLAHHHH Time")]
+        [TimeSpanIsAfter("StartTime", ErrorMessage = "{0} cannot be less than the BLAh Time")]
         public TimeSpan EndTime { get; set; }
-
-        // [DateIsAfter("StartTime")]
 
         [Display(Name = "Class Date")]
         [Required(ErrorMessage = " Please pick a date for the class")]

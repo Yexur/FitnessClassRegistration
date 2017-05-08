@@ -9,21 +9,21 @@ namespace FitnessClassRegistration.CustomValidation
     {
         private const string DefaultErrorMessage = "{0} cannot be the same as {1}.";
 
-        public string OtherProperty { get; }
+        public string OtherPropertyNotEqual { get; }
 
-        public NotEqualToAttribute(string otherProperty) : base(DefaultErrorMessage)
+        public NotEqualToAttribute(string otherPropertyNotEqual) : base(DefaultErrorMessage)
         {
-            if (string.IsNullOrEmpty(otherProperty))
+            if (string.IsNullOrEmpty(otherPropertyNotEqual))
             {
                 throw new ArgumentNullException("otherProperty");
             }
 
-            OtherProperty = otherProperty;
+            OtherPropertyNotEqual = otherPropertyNotEqual;
         }
 
         public override string FormatErrorMessage(string name)
         {
-            return string.Format(ErrorMessageString, name, OtherProperty);
+            return string.Format(ErrorMessageString, name, OtherPropertyNotEqual);
         }
 
         protected override ValidationResult IsValid(
@@ -34,7 +34,7 @@ namespace FitnessClassRegistration.CustomValidation
             if (value != null)
             {
                 var otherProperty =
-                    validationContext.ObjectInstance.GetType().GetProperty(OtherProperty);
+                    validationContext.ObjectInstance.GetType().GetProperty(OtherPropertyNotEqual);
 
                 var otherPropertyValue =
                     otherProperty.GetValue(validationContext.ObjectInstance, null);
