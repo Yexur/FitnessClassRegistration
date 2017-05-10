@@ -16,7 +16,7 @@ namespace FitnessClassRegistration.CustomValidation
         public override void AddValidation(ClientModelValidationContext context)
         {
             MergeAttribute(context.Attributes, "data-val", "true");
-            MergeAttribute(context.Attributes, "data-val-notequal", GetErrorMessage(context));
+            MergeAttribute(context.Attributes, "data-val-notequalto", GetErrorMessage(context));
             MergeAttribute(
                 context.Attributes,
                 "data-val-notequalto-otherpropertynotequal", 
