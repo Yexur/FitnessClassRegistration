@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ApplicationModels.FitnessApp.Models;
-using System.Collections.Generic;
 
 namespace FitnessClassRegistration.IRepository
 {

@@ -1,7 +1,7 @@
-﻿using FitnessClassRegistration.Models.ApplicationViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using FitnessClassRegistration.Models.ApplicationViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FitnessClassRegistration.Logic
 {

@@ -1,6 +1,6 @@
-﻿using FitnessClassRegistration.CustomValidation;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using FitnessClassRegistration.CustomValidation;
 
 namespace FitnessClassRegistration.Models.ApplicationViewModels
 {

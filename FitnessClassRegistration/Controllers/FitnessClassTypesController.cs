@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 using FitnessClassRegistration.Logic;
 using FitnessClassRegistration.Models.ApplicationViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClassRegistration.Controllers
 {
@@ -83,7 +83,7 @@ namespace FitnessClassRegistration.Controllers
                 {
                     await _fitnessClassTypeLogic.Save(fitnessClassType);
                 }
-                catch (DbUpdateConcurrencyException) // need to change this to be less specific
+                catch (DbUpdateConcurrencyException)
                 {
                     if (!_fitnessClassTypeLogic.FitnessClassTypeExists(fitnessClassType.Id))
                     {

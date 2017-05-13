@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using FitnessClassRegistration.IRepository;
-using ApplicationModels.FitnessApp.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
+using ApplicationModels.FitnessApp.Models;
 using AutoMapper;
+using FitnessClassRegistration.IRepository;
 using FitnessClassRegistration.Models.ApplicationViewModels;
 
 namespace FitnessClassRegistration.Logic
