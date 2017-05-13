@@ -1,12 +1,12 @@
-﻿using ApplicationModels.FitnessApp.Models;
-using FitnessClassRegistration.IRepository;
-using FitnessClassRegistration.Models.ApplicationViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplicationModels.FitnessApp.Models;
+using AutoMapper;
+using FitnessClassRegistration.IRepository;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
-using AutoMapper;
 
 namespace FitnessClassRegistration.Logic
 {
@@ -50,7 +50,8 @@ namespace FitnessClassRegistration.Logic
             return fitnessClassView;
         }
 
-        public FitnessClassListView FindByIdForDelete(int id) {
+        public FitnessClassListView FindByIdForDelete(int id)
+        {
             var fitnessClass = _fitnessClassRepository.FindById(id);
             var fitnessClassView = Mapper.Map<FitnessClassListView>(fitnessClass);
             return fitnessClassView;
@@ -105,7 +106,6 @@ namespace FitnessClassRegistration.Logic
             return _fitnessClassRepository.FitnessClassExists(id);
         }
 
-//MS THESE NEED TO CHANGE TO GET ONLY THE ACTIVE ONES
         public async Task<ICollection<SelectListItem>> GetLocations()
         {
             var locations = await _locationLogic.GetList();
@@ -117,24 +117,25 @@ namespace FitnessClassRegistration.Logic
             return BuildSelectListItems(locationSelectList);
         }
 
-        //MS THESE NEED TO CHANGE TO GET ONLY THE ACTIVE ONES
         public async Task<ICollection<SelectListItem>> GetInstructors()
         {
             var instructors = await _instructorLogic.GetList();
-            var instructorSelectList = instructors.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Name
-            });
+            var instructorSelectList = instructors
+                .Where(x => x.Status == true)
+                .Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name
+                });
             return BuildSelectListItems(instructorSelectList);
         }
 
-
-        //MS THESE NEED TO CHANGE TO GET ONLY THE ACTIVE ONES
         public async Task<ICollection<SelectListItem>> GetFitnessClassTypes()
         {
             var fitnessClassTypes = await _fitnessClassTypeLogic.GetList();
-            var fitnessClassTypesSelectList =  fitnessClassTypes.Select(x => new SelectListItem
+            var fitnessClassTypesSelectList = fitnessClassTypes
+                .Where(x => x.Status == true)
+                .Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = x.Name
@@ -160,4 +161,3 @@ namespace FitnessClassRegistration.Logic
         }
     }
 }
- 

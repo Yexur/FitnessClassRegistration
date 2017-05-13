@@ -1,6 +1,6 @@
-﻿using FitnessClassRegistration.Models.ApplicationViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
 namespace FitnessClassRegistration.Logic
 {

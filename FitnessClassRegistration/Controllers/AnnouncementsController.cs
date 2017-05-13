@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
+using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models.ApplicationViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FitnessClassRegistration.Logic;
-using Microsoft.AspNetCore.Authorization;
-using FitnessClassRegistration.Models.ApplicationViewModels;
 
 namespace FitnessClassRegistration.Controllers
 {

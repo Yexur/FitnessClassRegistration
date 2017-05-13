@@ -1,10 +1,10 @@
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using FitnessClassRegistration.Logic;
-using Microsoft.EntityFrameworkCore;
 using FitnessClassRegistration.Models.ApplicationViewModels;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClassRegistration.Controllers
 {
@@ -45,7 +45,7 @@ namespace FitnessClassRegistration.Controllers
                 var fitnessClassIds = attendingSelected.Select(int.Parse).ToArray();
                 await _registrationRecordLogic.SaveRange(fitnessClassIds, User.Identity.Name);
             }
-            catch (DbUpdateConcurrencyException) // need to change this to be less specific
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }
@@ -120,7 +120,7 @@ namespace FitnessClassRegistration.Controllers
                 {
                     await _fitnessClassLogic.Save(fitnessClass);
                 }
-                catch (DbUpdateConcurrencyException) // need to change this to be less specific
+                catch (DbUpdateConcurrencyException)
                 {
                     if (!_fitnessClassLogic.FitnessClassExists(fitnessClass.Id))
                     {

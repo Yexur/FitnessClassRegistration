@@ -1,8 +1,8 @@
-﻿using FitnessClassRegistration.Models;
+﻿using System;
+using System.Threading.Tasks;
+using FitnessClassRegistration.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
 
 namespace FitnessClassRegistration.Data
 {

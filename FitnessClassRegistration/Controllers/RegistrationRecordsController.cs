@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 using FitnessClassRegistration.Logic;
 using FitnessClassRegistration.Models.ApplicationViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClassRegistration.Controllers
 {
@@ -49,7 +49,7 @@ namespace FitnessClassRegistration.Controllers
             {
                 await _registrationRecordLogic.SaveAttended(registrations);
             }
-            catch (DbUpdateConcurrencyException) // need to change this to be less specific
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }
@@ -72,7 +72,7 @@ namespace FitnessClassRegistration.Controllers
                 var registrationRecordIds = deleteSelected.Select(int.Parse).ToArray();
                 _registrationRecordLogic.DeleteRange(registrationRecordIds);
             }
-            catch (DbUpdateConcurrencyException) // need to change this to be less specific
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }

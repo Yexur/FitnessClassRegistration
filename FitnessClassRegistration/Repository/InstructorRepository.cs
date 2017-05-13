@@ -1,10 +1,10 @@
-﻿using FitnessClassRegistration.IRepository;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ApplicationModels.FitnessApp.Models;
 using FitnessClassRegistration.Data;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+using FitnessClassRegistration.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClassRegistration.Repository

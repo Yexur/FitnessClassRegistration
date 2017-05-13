@@ -1,6 +1,6 @@
-﻿using FitnessClassRegistration.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using FitnessClassRegistration.Core;
 
 namespace ApplicationModels.FitnessApp.Models
 {
