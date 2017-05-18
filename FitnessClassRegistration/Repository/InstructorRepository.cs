@@ -22,13 +22,6 @@ namespace FitnessClassRegistration.Repository
             return await _context.Instructor.ToListAsync();
         }
 
-        public void Delete(int id)
-        {
-            var instructor = FindById(id);
-            _context.Remove(instructor);
-            _context.SaveChanges();
-        }
-
         public Instructor FindById(int id)
         {
             return _context.Instructor.SingleOrDefault(m => m.Id == id);

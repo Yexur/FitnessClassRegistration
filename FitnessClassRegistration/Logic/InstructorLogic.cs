@@ -41,11 +41,6 @@ namespace FitnessClassRegistration.Logic
             await _instructorRepository.Insert(instructor);
         }
 
-        public void Delete(int id)
-        {
-            _instructorRepository.Delete(id);
-        }
-
         public bool InstructorExists(int id)
         {
             return _instructorRepository.InstructorExists(id);

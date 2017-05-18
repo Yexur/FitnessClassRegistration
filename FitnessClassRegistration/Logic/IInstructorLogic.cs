@@ -9,7 +9,6 @@ namespace FitnessClassRegistration.Logic
         InstructorView FindById(int id);
         Task<List<InstructorView>> GetList();
         Task Save(InstructorView instructor);
-        void Delete(int id);
         bool InstructorExists(int id);
     }
 }
