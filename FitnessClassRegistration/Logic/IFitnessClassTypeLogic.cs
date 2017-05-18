@@ -10,6 +10,5 @@ namespace FitnessClassRegistration.Logic
         Task<List<FitnessClassTypeView>> GetList();
         Task Save(FitnessClassTypeView fitnessClassType);
         bool FitnessClassTypeExists(int id);
-        void Delete(int id);
     }
 }

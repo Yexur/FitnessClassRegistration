@@ -132,6 +132,8 @@ namespace FitnessClassRegistration.Logic
             _registrationRecordRepository.Delete(id);
         }
 
+        //TODO need to check this is in the past... cannot delete past registrations
+        //if the class has already happened then we cannot delete it.
         public void DeleteRange(int[] registrationRecordIds)
         {
             List<RegistrationRecord> recordsToDelete =

@@ -97,28 +97,5 @@ namespace FitnessClassRegistration.Controllers
             }
             return View(fitnessClassType);
         }
-
-        // GET: FitnessClassTypes/Delete/5
-        [Authorize(Roles = "FitnessAppAdmin")]
-        public IActionResult Delete(int id)
-        {
-            var fitnessClassType = _fitnessClassTypeLogic.FindById(id);
-            if (fitnessClassType == null)
-            {
-                return NotFound();
-            }
-
-            return View(fitnessClassType);
-        }
-
-        // POST: FitnessClassTypes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "FitnessAppAdmin")]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            _fitnessClassTypeLogic.Delete(id);
-            return RedirectToAction("Index");
-        }
     }
 }
