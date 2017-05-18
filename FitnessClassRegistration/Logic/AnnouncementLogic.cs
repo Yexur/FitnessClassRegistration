@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FitnessClassRegistration.Models.ApplicationViewModels;
-using FitnessClassRegistration.IRepository;
-using AutoMapper;
 using ApplicationModels.FitnessApp.Models;
+using AutoMapper;
+using FitnessClassRegistration.IRepository;
+using FitnessClassRegistration.Models.ApplicationViewModels;
 
 namespace FitnessClassRegistration.Logic
 {

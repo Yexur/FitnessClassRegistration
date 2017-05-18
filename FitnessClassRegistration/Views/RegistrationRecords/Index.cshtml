@@ -23,17 +23,21 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                <a class="url" asp-action="RegistrationsByFitnessClass" asp-route-id="@item.Id" asp-controller="RegistrationRecords">@item.FitnessClassType.Name</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Instructor.Name)
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a class="url"
+                       asp-action="RegistrationsByFitnessClass"
+                       asp-route-id="@item.Id"
+                       asp-controller="RegistrationRecords">@item.FitnessClassType.Name
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instructor.Name)
+                </td>
+            </tr>
         }
     </tbody>
 </table>

@@ -1,11 +1,11 @@
-﻿using FitnessClassRegistration.IRepository;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ApplicationModels.FitnessApp.Models;
 using FitnessClassRegistration.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+using FitnessClassRegistration.IRepository;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace FitnessClassRegistration.Repository
 {
@@ -33,7 +33,10 @@ namespace FitnessClassRegistration.Repository
 
         public async Task<List<RegistrationRecord>> FindByFitnessClassId(int fitnessClassId)
         {
-            return await _context.RegistrationRecord.Where(r => r.FitnessClass_Id == fitnessClassId)
+            return await _context.RegistrationRecord
+                .Where(r => r.FitnessClass_Id == fitnessClassId)
+                .Include(f => f.FitnessClass)
+                .Include(t => t.FitnessClass.FitnessClassType)
                 .ToListAsync();
         }
 
@@ -54,6 +57,13 @@ namespace FitnessClassRegistration.Repository
                 _context.RemoveRange(recordsToDelete);
                 _context.SaveChanges();
             }
+        }
+
+        public List<RegistrationRecord> FindByIdRange(List<int> ids)
+        {
+            return _context.RegistrationRecord
+                .Include(f => f.FitnessClass)
+                .Where(r => ids.Contains(r.Id)).ToList();
         }
 
         public RegistrationRecord FindById(int id)

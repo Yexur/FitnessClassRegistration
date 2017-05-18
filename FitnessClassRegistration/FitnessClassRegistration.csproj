@@ -11,6 +11,18 @@
   <PropertyGroup>
     <UserSecretsId>aspnet-FitnessClassRegistration-ca5db40f-6a47-48eb-a1cb-25b078298a98</UserSecretsId>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\js\GreaterThanValidation.js" />
+    <Content Include="wwwroot\js\NotEqualToValidation.js" />
+    <Content Include="wwwroot\js\TimeSpanIsAfterValidation.js" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
     <PackageReference Include="Bootstrap.v3.Datetimepicker" Version="4.17.45" />

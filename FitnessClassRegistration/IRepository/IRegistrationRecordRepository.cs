@@ -1,6 +1,6 @@
-﻿using ApplicationModels.FitnessApp.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ApplicationModels.FitnessApp.Models;
 
 namespace FitnessClassRegistration.IRepository
 {
@@ -14,5 +14,6 @@ namespace FitnessClassRegistration.IRepository
         RegistrationRecord FindById(int id);
         Task<List<RegistrationRecord>> FindByUserName(string userName);
         Task<List<RegistrationRecord>> FindByFitnessClassId(int fitnessClassId);
+        List<RegistrationRecord> FindByIdRange(List<int> ids);
     }
 }

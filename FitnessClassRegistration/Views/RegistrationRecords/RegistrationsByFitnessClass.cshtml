@@ -1,39 +1,54 @@
-@model IEnumerable<FitnessClassRegistration.Models.ApplicationViewModels.RegistrationRecordView>
+@model FitnessClassRegistration.Models.ApplicationViewModels.RegistrationsByFitnessClassModel
 
 @{
     ViewData["Title"] = "User Registrations for ";
 }
 
-<h2>@ViewData["Title"] + @Model.FirstOrDefault().FitnessClass.FitnessClassType.Name</h2>
-
+<h2>@ViewData["Title"] @Model.RegistrationRecords[0].FitnessClass.FitnessClassType.Name</h2>
+<form asp-action="RegistrationsByFitnessClass">
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserName)
+                    @Html.DisplayNameFor(model => model.RegistrationRecords[0].UserName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    @Html.DisplayNameFor(model => model.RegistrationRecords[0].Email)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Attended)
+                    @Html.DisplayNameFor(model => model.RegistrationRecords[0].Attended)
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @for (var i = 0; i < Model.RegistrationRecords.Count; i++)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Attended)
-                </td>
-            </tr>
+                <tr>
+                    @Html.HiddenFor(x => x.RegistrationRecords[i].Id)
+                    <td>
+                        @Html.DisplayFor(x => x.RegistrationRecords[i].UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => x.RegistrationRecords[i].Email)
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(x => x.RegistrationRecords[i].Attended)
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
+    @if (Model.RegistrationRecords.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" value="Update Attendance" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</form>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

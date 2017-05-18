@@ -1,16 +1,18 @@
 ﻿using ApplicationModels.FitnessApp.Models;
 using AutoMapper;
+using FitnessClassRegistration.CustomValidation;
 using FitnessClassRegistration.Data;
 using FitnessClassRegistration.IRepository;
 using FitnessClassRegistration.Logic;
+using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Models.ApplicationViewModels;
 using FitnessClassRegistration.Repository;
-using FitnessClassRegistration.Models;
 using FitnessClassRegistration.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -69,6 +71,9 @@ namespace FitnessClassRegistration
                 }
                 config.Filters.Add(new RequireHttpsAttribute());
             });
+
+            services.AddSingleton
+                <IValidationAttributeAdapterProvider, CustomValidationAttributeAdapterProvider>();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -159,7 +164,7 @@ namespace FitnessClassRegistration
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=FitnessClasses}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             identitySeeder.Seed().Wait();
